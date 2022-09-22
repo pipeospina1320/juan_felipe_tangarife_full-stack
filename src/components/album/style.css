@@ -52,3 +52,20 @@
 
     cursor: pointer;
 }
+
+.remove-album {
+    width: 184px;
+    height: 44px;
+
+    background: #E3513D;
+    border-radius: 24px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+
+    cursor: pointer;
+}

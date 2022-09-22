@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import HttpStatus from 'http-status-codes';
 import { createContext, useMemo } from 'react';
-import { get, put } from '../services/ApiServiceFecth';
+import { get, put, del } from '../services/ApiServiceFecth';
 // ----------------------------------------------------------------------
 
 const initialState = {
   doGet: () => {},
-  doPut: () => {}
+  doPut: () => {},
+  doDelete: () => {}
 };
 
 const ApiContext = createContext(initialState);
@@ -24,8 +25,13 @@ function ApiProvider({ children }) {
     if (initialResponse === undefined) {
       return null;
     }
+    let json = {};
+    try {
+      json = await initialResponse.json();
+    } catch (error) {
+      json = {};
+    }
 
-    const json = await initialResponse.json();
     if (initialResponse.ok) {
       if (initialResponse.status === HttpStatus.NO_CONTENT) {
         return null;
@@ -42,7 +48,9 @@ function ApiProvider({ children }) {
 
   const doPut = (url, data) => doRequest(put, url, data);
 
-  const value = useMemo(() => ({ doGet, doPut }), []);
+  const doDelete = (url, data) => doRequest(del, url, data);
+
+  const value = useMemo(() => ({ doGet, doPut, doDelete }), []);
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
 }

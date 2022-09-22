@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AlbumItem from '../../components/album/AlbumItem';
 import Header from '../../components/layout/header/Header';
 import useApi from '../../hooks/useApi';
@@ -12,21 +12,26 @@ export default function MyAlbum() {
   const [state, setState] = useState(initState);
   const { doGet } = useApi();
 
-  useEffect(() => {
-    const init = async () => {
-      try {
-        const resp = await doGet('/me/albums');
-        const { items } = resp;
+  const init = async () => {
+    try {
+      const resp = await doGet('/me/albums');
+      const { items } = resp;
 
-        setState({ albums: items });
-      } catch (error) {
-        console.log(error);
-      }
-    };
+      setState({ albums: items });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
     init();
   }, []);
 
-  const showResult = () => {
+  const onDelete = () => {
+    init();
+  };
+
+  const showResult = useCallback(() => {
     const { albums } = state;
 
     return (
@@ -41,13 +46,15 @@ export default function MyAlbum() {
                 name={name}
                 images={images}
                 releaseDate={releaseDate}
+                onDelete={onDelete}
+                canDelete
               />
             );
           })}
         </div>
       </>
     );
-  };
+  }, [state]);
   return (
     <>
       <Header />

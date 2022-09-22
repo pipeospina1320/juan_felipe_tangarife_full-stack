@@ -6,15 +6,22 @@ AlbumItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   releaseDate: PropTypes.string.isRequired,
-  images: PropTypes.array
+  images: PropTypes.array,
+  canDelete: PropTypes.bool,
+  onDelete: PropTypes.func
 };
 
-export default function AlbumItem({ id, name, releaseDate, images }) {
-  const { doPut } = useApi();
+export default function AlbumItem({ id, name, releaseDate, images, canDelete = false, onDelete }) {
+  const { doPut, doDelete } = useApi();
   const srcset = images.map((item) => `${item.url} ${item.width}w`).join(',');
 
   const onAddAlbum = async () => {
     await doPut(`/me/albums?ids=${id}`);
+  };
+
+  const onRemoveAlbum = async () => {
+    await doDelete(`/me/albums?ids=${id}`);
+    onDelete();
   };
 
   return (
@@ -29,9 +36,15 @@ export default function AlbumItem({ id, name, releaseDate, images }) {
         <p className="album-artist-name">{name}</p>
         <p className="album-artist-date-publish">Publicado: {releaseDate}</p>
       </div>
-      <button className="add-album" type="submit" onClick={onAddAlbum}>
-        + Add album
-      </button>
+      {canDelete ? (
+        <button className="remove-album" type="submit" onClick={onRemoveAlbum}>
+          - Remove album
+        </button>
+      ) : (
+        <button className="add-album" type="submit" onClick={onAddAlbum}>
+          + Add album
+        </button>
+      )}
     </div>
   );
 }

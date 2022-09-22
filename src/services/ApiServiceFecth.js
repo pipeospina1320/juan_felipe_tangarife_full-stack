@@ -1,6 +1,6 @@
 import { getAuthorizationBearer } from '../utils/jwt';
 
-const HEAD_CONTENT = { 'Content-Type': 'application/json' };
+const HEAD_CONTENT = { 'Content-Type': 'application/json', Accept: 'application/json' };
 
 const PATH = process.env.REACT_APP_URL_API;
 
@@ -37,8 +37,15 @@ const put = async (path) => {
   return response;
 };
 
+const del = async (path) => {
+  const urlPath = createPath(path);
+  const optionsFetch = configRequest('DELETE');
+  const response = await fetch(urlPath, optionsFetch);
+  return response;
+};
+
 const getUser = async () => {
   return get('/me');
 };
 
-export { get, put, getUser };
+export { get, put, getUser, del };
