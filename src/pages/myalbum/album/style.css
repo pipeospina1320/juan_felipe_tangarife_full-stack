@@ -1,0 +1,45 @@
+.album-artist-container {
+    /* display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 469px;
+    border-radius: 24px;
+    cursor: pointer; */
+}
+
+.album-artist-image {
+    /* width: 272px;
+    height: 241px;
+    opacity: 0.8;
+    border-radius: 12px;
+    background: #C4C4C4; */
+}
+
+.album-artist-name {
+    /* margin: 24px 0 0 0;
+    width: 258px;
+    height: 44px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #FFFFFF; */
+}
+
+.album-artist-date-publish {
+    /* font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF; */
+}
+
+/* @media (max-width: 834px) {
+    .album-artist-container {
+        flex: 50%;
+        flex-direction: column;
+
+    }
+} */

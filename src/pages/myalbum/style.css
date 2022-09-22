@@ -1,0 +1,88 @@
+.myalbum-container-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.myalbum-text-1 {
+    margin: 0;
+    width: 458px;
+    height: 156px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 78px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.myalbum-text-2 {
+    margin: 0;
+    width: 458px;
+    height: 64px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.myalbum-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    margin-top: 110px;
+}
+
+@media (max-width: 834px) {
+    .myalbum-container-info {
+        margin-top: 84px;
+    }
+
+    .myalbum-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 390px) {
+    .myalbum-container-info {
+        margin-top: 45px;
+    }
+
+    .myalbum-text-1 {
+        width: 329px;
+        height: 98px;
+        font-size: 40px;
+        line-height: 49px;
+        text-align: left;
+    }
+
+    .myalbum-text-2 {
+        width: 329px;
+        height: 96px;
+        text-align: left;
+        font-size: 16px;
+    }
+
+
+    .myalbum-container {
+        margin-top: 146px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

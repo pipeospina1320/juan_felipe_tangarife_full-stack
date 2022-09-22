@@ -1,0 +1,145 @@
+.artist-detail-container {
+    width: 100%;
+    display: flex;
+    margin-top: 65px;
+}
+
+.artist-detail-image {
+    width: 237px;
+    height: 236px;
+    margin-left: 137px;
+    opacity: 0.8;
+    border-radius: 118px;
+}
+
+.artist-detail-info {
+    margin-left: 55px;
+}
+
+.artist-info-1 {
+    height: 20px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+    margin: 25px 0 0 0;
+
+}
+
+.artist-info-2 {
+    height: 78px;
+    margin: 11px 0 0 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 78px;
+    color: #FFFFFF;
+}
+
+.artist-info-3 {
+    margin: 32px 0 0 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #FFFFFF;
+}
+
+.artist-info-4 {
+    margin: 0 0 0 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+
+.artist-save-info-container {
+    width: 100%;
+    height: 32px;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+.artist-save-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    margin: 100px 0 0 130px;
+    color: #FFFFFF;
+}
+
+.artist-album-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+}
+
+@media (max-width: 834px) {
+    .artist-detail-container {
+        margin-left: 112px;
+    }
+
+    .artist-detail-image {
+        margin-left: 0;
+    }
+
+    .artist-save-text {
+        margin: 44px 0 0 130px;
+    }
+
+    .artist-album-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 20px;
+    }
+
+}
+
+@media (max-width: 390px) {
+    .artist-detail-container {
+        display: flex;
+        flex-direction: column;
+        margin: 41px 0 0 31px;
+    }
+
+    .artist-detail-image {
+        width: 169px;
+        height: 168px;
+        opacity: 0.8;
+        border-radius: 118px;
+    }
+
+    .artist-detail-info {
+        margin-left: 0px;
+    }
+
+    .artist-info-2 {
+        font-size: 40px;
+        line-height: 49px;
+    }
+
+    .artist-save-text {
+        line-height: 28px;
+        margin: 85px 0 0 31px;
+    }
+
+    .artist-album-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}
