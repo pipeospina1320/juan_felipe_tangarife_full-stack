@@ -3,7 +3,7 @@ import './style.css';
 
 export default function Header() {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
     <header>
       {/* <h1 className="header-title">SPOTI</h1> */}

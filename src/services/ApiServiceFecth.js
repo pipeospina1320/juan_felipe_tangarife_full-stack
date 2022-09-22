@@ -29,8 +29,7 @@ const get = async (path, params = {}) => {
   return response;
 };
 
-const put = async (path, data = {}) => {
-  console.log(data);
+const put = async (path) => {
   const urlPath = createPath(path);
   const optionsFetch = configRequest('PUT');
   // optionsFetch.body = JSON.stringify(data);
@@ -38,4 +37,8 @@ const put = async (path, data = {}) => {
   return response;
 };
 
-export { get, put };
+const getUser = async () => {
+  return get('/me');
+};
+
+export { get, put, getUser };

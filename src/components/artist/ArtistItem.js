@@ -14,8 +14,6 @@ export default function ArtistItem({ id, name, followers, images = [] }) {
   const srcset = images.map((item) => `${item.url} ${item.width}w`).join(',');
 
   const onSelectArtist = () => {
-    console.log('ar');
-    // artist
     navigate(`/artist/${id}`, { replace: true });
   };
 

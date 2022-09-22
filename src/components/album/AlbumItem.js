@@ -13,10 +13,8 @@ export default function AlbumItem({ id, name, releaseDate, images }) {
   const { doPut } = useApi();
   const srcset = images.map((item) => `${item.url} ${item.width}w`).join(',');
 
-  console.log(id);
   const onAddAlbum = async () => {
-    const resp = await doPut(`/me/albums?ids=${id}`);
-    console.log(resp);
+    await doPut(`/me/albums?ids=${id}`);
   };
 
   return (

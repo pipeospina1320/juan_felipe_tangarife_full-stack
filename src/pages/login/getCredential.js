@@ -13,8 +13,6 @@ export default function GetCredential() {
         .split('&')
         .find((elem) => elem.startsWith('access_token'))
         .split('=')[1];
-      console.log(hash);
-      console.log(token);
 
       if (token) {
         setSession(token);

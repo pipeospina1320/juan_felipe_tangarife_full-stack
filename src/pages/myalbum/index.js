@@ -33,7 +33,6 @@ export default function MyAlbum() {
       <>
         <div className="myalbum-container">
           {albums.map((item, index) => {
-            console.log(item);
             const { id, name, images, release_date: releaseDate } = item.album;
             return (
               <AlbumItem

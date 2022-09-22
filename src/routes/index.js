@@ -4,27 +4,59 @@ import Buscador from '../pages/buscador';
 import Artist from '../pages/artista';
 import MyAlbum from '../pages/myalbum';
 import GetCredential from '../pages/login/getCredential';
+import GuestGuard from '../guards/GuestGuard';
+import AuthGuard from '../guards/AuthGuard';
 
 const router = createBrowserRouter([
   {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: '/get-credential',
-    element: <GetCredential />
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        element: (
+          <GuestGuard>
+            <Login />
+          </GuestGuard>
+        )
+      },
+      {
+        path: 'get-credential',
+        element: (
+          <GuestGuard>
+            <GetCredential />
+          </GuestGuard>
+        )
+      }
+    ]
   },
   {
     path: '/',
-    element: <Buscador />
-  },
-  {
-    path: '/artist/:id',
-    element: <Artist />
-  },
-  {
-    path: '/my-albums',
-    element: <MyAlbum />
+    children: [
+      {
+        path: '',
+        element: (
+          <AuthGuard>
+            <Buscador />
+          </AuthGuard>
+        )
+      },
+      {
+        path: 'artist/:id',
+        element: (
+          <AuthGuard>
+            <Artist />
+          </AuthGuard>
+        )
+      },
+      {
+        path: 'my-albums',
+        element: (
+          <AuthGuard>
+            <MyAlbum />
+          </AuthGuard>
+        )
+      }
+    ]
   }
 ]);
 

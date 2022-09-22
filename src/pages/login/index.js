@@ -1,10 +1,10 @@
 import './style.css';
 
-const AUTH_URL = 'https://accounts.spotify.com/authorize';
+const AUTH_URL = process.env.REACT_APP_AUTH_URL;
 const RESPONSE_TYPE = 'token';
-const CLIENT_ID = 'e41987af34804ca294417cf46ba0e07e';
-const REDIRECT_URI = 'http://localhost:3000/get-credential';
-const SCOPE = 'user-library-modify user-library-read';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const REDIRECT_URI = `${window.location.origin}/auth/get-credential`;
+const SCOPE = 'user-library-modify user-library-read user-read-private';
 
 export default function Login() {
   const urlSpotify = `${AUTH_URL}?response_type=${RESPONSE_TYPE}&client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}`;
